@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class OfferPage extends StatelessWidget {
   const OfferPage({super.key});
@@ -10,8 +8,8 @@ class OfferPage extends StatelessWidget {
     // if (MediaQuery.of(context). > 500) {
 // this can be used to check the size of screen and act accordingly
     // }
-    return Wrap(
-      children: const [
+    return const Wrap(
+      children: [
         Offer(
           title: "Title",
           description: "description",

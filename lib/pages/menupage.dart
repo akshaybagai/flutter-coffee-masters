@@ -1,8 +1,6 @@
 import 'package:coffee_masters/datamanager.dart';
 import 'package:coffee_masters/datamodel.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class MenuPage extends StatelessWidget {
   final DataManager dataManager;
@@ -15,7 +13,7 @@ class MenuPage extends StatelessWidget {
         future: dataManager.getMenu(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            var categories = snapshot.data! as List<ProductCategory>;
+            var categories = snapshot.data!;
             return ListView.builder(
                 itemCount: categories.length,
                 itemBuilder: (context, index) {
@@ -27,7 +25,7 @@ class MenuPage extends StatelessWidget {
                       ),
                       ListView.builder(
                           shrinkWrap: true,
-                          physics: ClampingScrollPhysics(),
+                          physics: const ClampingScrollPhysics(),
                           itemCount: categories[index].products.length,
                           itemBuilder: (context, productIndex) {
                             var product2 =
@@ -66,7 +64,7 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: Card(
         elevation: 4,
         child: Column(
@@ -89,8 +87,8 @@ class ProductItem extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        "\$" + product.price.toString(),
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        "\$${product.price}",
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],

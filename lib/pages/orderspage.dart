@@ -1,7 +1,5 @@
 import 'package:coffee_masters/datamanager.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 import '../datamodel.dart';
 
@@ -18,7 +16,7 @@ class _OrderPageState extends State<OrderPage> {
   @override
   Widget build(BuildContext context) {
     if (widget.dataManager.cart.isEmpty) {
-      return Text("Nothing in cart");
+      return const Text("Nothing in cart");
     }
     return ListView.builder(
         itemCount: widget.dataManager.cart.length,
@@ -64,8 +62,7 @@ class OrderItem extends StatelessWidget {
                 )),
             Expanded(
                 flex: 2,
-                child: Text("\$" +
-                    (item.product.price * item.quantity).toStringAsFixed(2))),
+                child: Text("\$${(item.product.price * item.quantity).toStringAsFixed(2)}")),
             Expanded(
                 flex: 1,
                 child: IconButton(

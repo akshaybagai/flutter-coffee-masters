@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "Coffee Masters",
       theme: ThemeData(
+        brightness: Brightness.light,
         primarySwatch: Colors.brown,
       ),
       home: const MyHomePage(),
@@ -97,7 +98,10 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     return Scaffold(
-      appBar: AppBar(title: Image.asset("images/logo.png")),
+      appBar: AppBar(
+        title: Image.asset("images/logo.png"),
+        // backgroundColor: Theme.of(context).primaryColor,
+      ),
       body: currentPage,
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: selectedIndex,
